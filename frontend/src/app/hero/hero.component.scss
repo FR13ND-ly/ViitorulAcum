@@ -1,0 +1,124 @@
+.host {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    flex-direction: column;
+}
+
+.change-theme-btn {
+    position: absolute;
+    right: 40px;
+    top: 40px;
+    cursor: pointer;
+    transform: scale(1.6);
+    mix-blend-mode: overlay;
+    z-index: 9999;
+}
+
+.title-wrapper {
+    display: flex;
+    align-items: flex-end;
+    height: 50%;
+    .title {
+        font-size: 9rem;
+        user-select: none;
+        font-weight: bolder;
+        line-height: normal;
+        background: linear-gradient(30deg, #2196f3, #0d47a1);
+        background-clip: text;
+        color: transparent;
+        white-space: nowrap!important;
+    }
+    .acum {
+        padding: 0 2%;
+        background: linear-gradient(40deg, #ff2819, #ff6219);
+        color: #fff;
+    }
+}
+
+.city {
+    width: 40%;
+    margin-top: 7%;
+    &__text {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.2rem;
+        line-height: normal;
+    }
+    &__author {
+        font-family: 'Roboto Slab', serif;
+        text-align: right;
+        font-weight: bold;
+        position: relative;
+        &::before {
+            content: "";
+            position: absolute;
+            width: 179px;
+            height: 2px;
+            bottom: 0;
+            right: 0;
+            background-color: #2196f3;
+        }
+    }
+}
+
+.scroll-down-indicator {
+    width: 28px;
+    animation: scroll-down-indicator 2s infinite forwards;
+}
+
+.scroll-down-indicator-wrapper {
+    cursor: pointer;
+    margin-top: 5%;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.scroll-wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+wbr {
+    display: none;
+}
+
+@media only screen and (max-width: 600px) {
+    wbr {
+        display: block;
+    }
+    .title-wrapper {
+        display: flex;
+        justify-content: center;
+        height: 45%;
+        .title {
+            margin-left: 10%;
+            font-size: 4.5rem;
+            white-space: wrap;
+        }
+    }
+    .city {
+        width: 85%;
+        margin-top: 15%;
+        &__text {
+            font-size: 1rem;
+        }
+    }
+    .change-theme-btn {
+        top: 30px;
+        right: 30px;
+    }
+    
+}
+
+@keyframes scroll-down-indicator {
+    0% { transform: translateY(0) translateX(-50%); }
+    25% { transform: translateY(0) translateX(-50%); }
+    50% { transform: translateY(-6px) translateX(-50%); }
+    100% { transform: translateY(0) translateX(-50%); }
+}

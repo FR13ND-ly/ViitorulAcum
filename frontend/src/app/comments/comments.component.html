@@ -1,0 +1,43 @@
+<h1 class="comments-count">
+    {{ comments.length }}
+    {{ comments.length == 1 ? "comentariu" : "comentarii" }}
+</h1>
+<form
+    (submit)="onAddComment(commentForm)"
+    #commentForm="ngForm"
+    *ngIf="user">
+    <div class="add-comment">
+        <img class="add-comment__user-photo" src="{{ user.photoURL }}" />
+        <mat-form-field appearance="standard" class="add-comment__input">
+            <mat-label>Adaugă un comentariu</mat-label>
+            <input matInput ngModel name="text" #commentText/>
+        </mat-form-field>
+    </div>
+    <button
+        mat-raised-button
+        type="submit"
+        class="add-comment__button"
+        color="primary"
+        *ngIf="commentText.value.trim().length"
+    >
+        Publică
+    </button>
+</form>
+<h3 *ngIf="!user" class="unauthorized-warning">Pentru a scrie comentarii trebuie să te <span class="login-text-button" (click)="onLogin()">loghezi</span></h3>
+<div class="comments">
+    <div
+        class="comment"
+        *ngFor="let comment of comments; let i = index"
+        #comment
+    >
+        <div class="comment__image-wrapper">
+            <img class="comment__user-photo" [src]="comment.imageURL" />
+        </div>
+        <div class="comment__details">
+            <p class="comment__user-name">
+                <span>{{ comment.author }}</span>
+            </p>
+            <p>{{ comment.text }}</p>
+        </div>
+    </div>
+</div>

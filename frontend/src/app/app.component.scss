@@ -1,0 +1,28 @@
+.footer {
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    width: 98%;
+    padding: 1%;
+    justify-content: center;
+}
+
+br {
+    display: none;
+}
+
+@media only screen and (max-width: 600px) {
+    footer {
+        margin: 0;
+    }
+    br {
+        display: block;
+    }
+    .footer {
+        padding: 10px;
+        div {
+            line-height: normal;
+            padding-bottom: -7px;
+        }
+    }
+}

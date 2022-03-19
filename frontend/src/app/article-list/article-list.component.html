@@ -1,0 +1,25 @@
+<div class="tags-wrapper">
+    <div *ngFor="let tag of tags;" [class.selected]="selected.includes(tag)" (click)="onToggleTag(tag)" class="tag default-color">#{{ tag }}</div>
+</div>
+<div class="articles" *ngIf="!loading">
+    <div class="article default-color" *ngFor="let article of articles" routerLink="articol/{{ article.id }}">
+        <img class="article__image" [src]="article.imageUrl">
+        <div class="article__tag default-color">#{{ article.tag }}</div>
+        <div class="article__content-wrapper">
+            <div class="article__title">{{ article.title }}</div>
+            <div class="article__details">
+                <div class="article__likes-wrapper">
+                    <mat-icon>favorite</mat-icon>
+                    <span class="article__likes-count">{{ article.likesCount }}</span>
+                </div>
+                <div class="article__comments-wrapper">
+                    <mat-icon>forum</mat-icon>
+                    <span class="article__comments-count">{{ article.commentsCount }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="articles loading" *ngIf="loading">
+    <div class="block" *ngFor="let i of [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]"></div>
+</div>

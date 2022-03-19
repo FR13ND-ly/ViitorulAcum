@@ -1,0 +1,52 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+}
+
+.top-menu {
+    padding: 2%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.right-side {
+    display: flex;
+}
+
+.change-theme-btn {
+    cursor: pointer;
+    transform: scale(1.6);
+    mix-blend-mode: overlay;
+}
+
+.return {
+    display: flex;
+    cursor: pointer;
+    transition: filter .2s;
+    mat-icon {
+        vertical-align: middle;
+        transition: transform .2s ease-in-out;
+    }
+    &__text {
+        margin-top: 3%;
+        font-size: 1.2rem;
+    }
+    &:hover mat-icon {
+        transform: translateX(-3px);
+    }
+}
+
+.article {
+    padding: 0 6%;
+    display: flex;
+    flex-direction: column;
+}
+
+.forms {
+    display: flex;
+    justify-content: space-between;
+    mat-form-field {
+        width: 32.8%;
+    }
+}

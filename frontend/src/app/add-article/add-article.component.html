@@ -1,0 +1,41 @@
+<div class="top-menu">
+    <div class="return" routerLink="/">
+        <mat-icon>arrow_back_ios</mat-icon>
+        <p class="return__text">Înapoi</p>
+    </div>
+    <button mat-icon-button class="change-theme-btn" (click)="onChangeTheme()">
+        <mat-icon>dark_mode</mat-icon>
+    </button>
+</div>
+<div class="article" *ngIf="verified">
+    <div>
+        <button mat-flat-button style="float: right;" color="warn" *ngIf="article.id" (click)="onDeleteArticle()"><mat-icon>delete</mat-icon></button>
+        <h1>{{ this.article.id ? 'Edită articolul' : 'Adaugă un articol' }}</h1>
+    </div>
+    <mat-form-field appearance="fill">
+        <mat-label>Titlu</mat-label>
+        <input matInput [(ngModel)]="article.title" required>
+    </mat-form-field>
+    <div class="forms">
+        <mat-form-field appearance="outline">
+            <mat-label>Subtitlu</mat-label>
+            <input matInput [(ngModel)]="article.subtitle">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Link la imagine de copertă</mat-label>
+            <input matInput [(ngModel)]="article.imageUrl">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Tag</mat-label>
+            <mat-select required [(ngModel)]="article.tag">
+                <mat-option *ngFor='let tag of ["economic", "medicină", "educație", "social media", "știință", "tehnologii", "artă", "industria jocurilor"]' [value]="tag">
+                    {{ tag }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="wrapper color1 shadow1 survey">
+        <app-text-editor [(text)]="article.text"></app-text-editor>
+    </div>
+    <button mat-raised-button style="margin: 1% 0;" color="primary" (click)="onAddArticle()">{{ this.article.id ? "Salvează modificările" : "Adaugă"}}</button>
+</div>

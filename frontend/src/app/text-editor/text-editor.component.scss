@@ -1,0 +1,32 @@
+.text-editor {
+    outline: 0;
+    height: 50vh;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 1%;
+    overflow-y: auto;
+    line-height: 150%;
+    width: 98%;
+}
+
+.code-editor {
+    width: 100%;
+    textarea {
+        height: 50vh;
+        line-height: 150%;
+    }
+}
+
+.menu {
+    display: flex;
+    gap: .5%;
+    margin-bottom: .7%;
+}
+
+button {
+    user-select: none;
+}
+
+mat-form-field {
+    user-select: none;
+}

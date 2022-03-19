@@ -1,0 +1,327 @@
+.top-menu {
+    display: flex;
+    justify-content: space-between;
+    padding: 2%;
+    box-sizing: border-box;
+}
+
+.right-side {
+    display: flex;
+}
+
+.change-theme-btn {
+    margin-right: 30px;
+    cursor: pointer;
+    transform: scale(1.6);
+    mix-blend-mode: overlay;
+}
+
+.socials {
+    display: flex; 
+    column-gap: .5rem;
+    .facebook {
+        background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1024px-Facebook_Logo_%282019%29.png");
+        animation: socialAppear .2s ;
+        background-size: 100%;
+    }
+    .twitter {
+        background-image: url("https://www.pngkey.com/png/full/2-27646_twitter-logo-png-transparent-background-logo-twitter-png.png");
+        animation: socialAppear .4s ;
+        background-size: 100%;
+    }
+    .viber {
+        background-color: #59267c;
+        animation: socialAppear .6s ;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &__image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            overflow: hidden;
+        }
+    }
+}
+
+@keyframes socialAppear {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.user {
+    width: 40px;
+    height: 40px;
+    background-color: #ccc;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1rem;
+    &__photo, &__auth {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        object-fit: cover;
+        transition: filter .1s;
+    }
+    mat-icon {
+        position: absolute;
+        display: none;
+        color: #fff;
+        z-index: 999;
+    }
+    &:hover {
+        .user__photo {
+            filter: brightness(0.4);
+        }
+        mat-icon {
+            display: block;
+        }
+    }
+}
+
+.return {
+    display: flex;
+    cursor: pointer;
+    transition: filter .2s;
+    mat-icon {
+        vertical-align: middle;
+        transition: transform .2s ease-in-out;
+    }
+    &__text {
+        margin-top: 3%;
+        font-size: 1.2rem;
+    }
+    &:hover mat-icon {
+        transform: translateX(-3px);
+    }
+}
+
+.tag {
+    margin-right: 1rem;
+    font-weight: bold;
+    padding: .8rem 1rem;
+    border-radius: 50px;
+    width: max-content;
+    cursor: pointer;
+    user-select: none;
+    transition: box-shadow .2s ease-in-out, color .1s;
+    box-shadow: 0 3px 1px -2px #0003, 0 2px 2px #00000024, 0 1px 5px #0000001f;
+    &:hover {
+        color: #2196f3;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    }
+}
+.article {
+    padding: 0 6%;
+    &__title {
+        font-family: 'Raleway', sans-serif;
+        font-size: 5rem;
+        line-height: normal;
+        font-weight: 700;
+        margin-bottom: 2%;
+    }
+    &__subtitle {
+        margin-top: .5rem;
+        font-weight: lighter;
+        font-size: 32px;
+        line-height: normal;
+        margin-top: -2%;
+        margin-bottom: 1%;
+    }
+    &__image {
+        border-radius: 10px;
+        width: 100%;
+    }
+    &__text {
+        margin-top: .5rem;
+        font-size: 18px;
+        line-height: 160%;
+    }
+}
+
+.share-button {
+    margin: 0 .5%;
+}
+
+.article-actions {
+    margin-top: 1.5%;
+    margin-bottom: .5%;
+    padding: 1% 6%;
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.likes-count {
+    font-size: 18px;
+    margin-left: 2px;
+}
+
+.article-aditional {
+    padding: .5% 6%;
+    display: flex;
+    justify-content: space-between;
+    app-comments {
+        width: 68%;
+    }
+    app-article-list-column {
+        width: 30%;
+    }
+}
+
+.loading {
+    display: flex;
+    flex-direction: column;
+    &__tag {
+        background-color: #ccc;
+        padding: .8rem 1rem;
+        border-radius: 50px;
+        height: 1rem;
+        width: 100px;
+        animation: loading 1.4s infinite alternate;
+    }
+    &__title {
+        background-color: #ccc;
+        height: 5rem;
+        width: 80%;
+        margin-top: 1%;
+        border-radius: 5px;
+        animation: loading 1.4s infinite ;
+    }
+    &__subtitle {
+        background-color: #ccc;
+        height: 3rem;
+        width: 60%;
+        margin-top: 1%;
+        border-radius: 5px;
+        animation: loading 1.4s infinite ;
+    }
+    &__image {
+        background-color: #ccc;
+        height: 30rem;
+        width: 100%;
+        margin-top: 1%;
+        border-radius: 10px;
+        animation: loading 1.4s infinite alternate;
+    }
+    &__line {
+        background-color: #ccc;
+        height: 2rem;
+        width: 100%;
+        margin-top: .8%;
+        border-radius: 10px;
+        animation: loading 1.4s infinite;
+    }
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    .user {
+        margin-right: 0;
+    }
+    .top-menu {
+        padding: 4% 4%;
+    }
+    
+    .change-theme-btn {
+        margin-right: 20px;
+    }
+    
+    .return {
+        padding-top: .5rem;
+    }
+
+    .user{
+        .user__photo {
+            filter: brightness(0.4);
+        }
+        mat-icon {
+            display: block;
+        }
+    }
+    
+    .article {
+        box-sizing: border-box;
+        padding: 0 4%;
+        
+        &__title {
+            margin-top: 2%;
+            font-size: 2rem;
+            line-height: normal;
+            font-weight: 700;
+        }
+        &__subtitle {
+            font-size: 1.2rem;
+            line-height: 1.4;
+        }
+        &__image {
+            margin-left: -4%;
+            border-radius: 0;
+            width: 108%;
+            max-width: 108%!important;
+        }
+        &__text {
+            font-size: 1rem;
+            line-height: 1.4;
+        }
+    }
+    
+    .article-actions {
+        margin-bottom: 1.5%;
+        padding: 2% 4%;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .article-aditional {
+        box-sizing: border-box;
+        padding: .5% 4% 0 4%;
+        flex-direction: column;
+        app-comments {
+            width: 100%;
+        }
+        app-article-list-column {
+            margin-bottom: .6rem;
+            width: 100%;
+        }
+    }
+    
+    .loading {
+        &__tag {
+            width: 80px;
+        }
+        &__title {
+            height: 3rem;
+            width: 90%;
+            margin-top: 2%;
+        }
+        &__subtitle {
+            height: 2rem;
+            width: 80%;
+            margin-top: 2%;
+        }
+        &__image {
+            height: 15rem;
+            width: 104%;
+            margin-left: -2%;
+            margin-top: 2%;
+            border-radius: 0;
+        }
+        &__line {
+            height: 1.5rem;
+            width: 100%;
+            margin-top: 2%;
+        }
+    }
+}

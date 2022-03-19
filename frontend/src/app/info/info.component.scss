@@ -1,0 +1,143 @@
+:host {
+    display: flex;
+    justify-content: center;
+}
+
+.information-wrapper {
+    width: 78%;
+    padding: 6% 10%;
+    border-radius: 20px;
+}
+
+.title {
+    font-size: 3.8rem;
+    font-weight: bold;
+    line-height: normal;
+    background: linear-gradient(-60deg,  #4187f0, #81c6ff);
+    background-clip: text;
+    color: transparent;
+}
+
+.storyline {
+    margin-top: 5%;
+    width: 80%;
+}
+
+.block {
+    margin-top: 4%;
+    margin-bottom: 2%;
+    &__title, &__text {
+        transition: opacity .2s, transform .5s;
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    &__title {
+        font-size: 1.7rem;
+        margin-left: 3rem;
+        position: relative;
+        line-height: normal;
+        font-weight: bold;
+        margin-bottom: 2%;
+        &::before {
+            content: '';
+            position: absolute;
+            margin-left: calc(-3rem - 9px);
+            height: 15px;
+            width: 15px;
+            border-radius: 50%;
+            left: 0;
+            top: 10px;
+        }
+    }
+    &__text {
+        font-size: 1.2rem;
+        line-height: 1.5;
+        margin-left: 3rem;
+        position: relative;
+        &::before {
+            content: '';
+            position: absolute;
+            margin-left: -3rem;
+            height: 100%;
+            width: 2px;
+            left: 0;
+        }
+    }
+}
+
+.show {
+    .block__title, .block__text {
+        opacity: 100;
+        transform: translateX(0);
+    }
+}
+
+.image-block {
+    opacity: 0;
+    transform: scale(.8);
+    max-width: 100%;
+    width: 70%;
+    height: 25rem;
+    overflow: hidden;
+    object-fit: cover;
+    transition: transform .2s, opacity .3s, box-shadow .5s;
+}
+
+.show-image {
+    opacity: 100;
+    transform: scale(1);
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+@media only screen and (max-width: 600px) {
+    .information-wrapper {
+        width: 90%;
+        border-radius: 0;
+    }
+    
+    .title {
+        font-size: 2.4rem;
+    }
+
+    .image-block {
+        width: 100%;
+        height: 14rem;
+    }
+    
+    .storyline {
+        width: 100%;
+    }
+    
+    .block {
+        margin-top: 6%;
+        margin-bottom: 4%;
+        &__title {
+            font-size: 1.2rem;
+            margin-left: 2rem;
+            &::before {
+                content: '';
+                position: absolute;
+                margin-left: calc(-2rem - 9px);
+                height: 15px;
+                width: 15px;
+                border-radius: 50%;
+                left: 0;
+                top: 10px;
+            }
+        }
+        &__text {
+            font-size: 1rem;
+            line-height: 1.4;
+            margin-left: 2rem;
+            position: relative;
+            &::before {
+                content: '';
+                position: absolute;
+                margin-left: -2rem;
+                height: 100%;
+                width: 2px;
+                left: 0;
+            }
+        }
+    }
+}
