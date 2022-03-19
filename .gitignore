@@ -1,0 +1,3 @@
+
+backend/db.sqlite3
+frontend/src/app/config.ts
